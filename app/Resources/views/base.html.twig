@@ -11,16 +11,18 @@
     </title>
 
     {% block stylesheets %}
-        <link rel="stylesheet"
-              href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+        {# <link rel="stylesheet"
+              href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/> #}
         {% stylesheets
-        'bundles/event/css/event.css'
-        'bundles/event/css/events.css'
-        'bundles/event/css/main.css'
-        filter='cssrewrite'
-        filter='?uglifycss'
-        output='css/built/layout.css' %}
-        <link rel="stylesheet" href="{{ asset_url }}"/>
+            '%kernel.root_dir%/../vendor/twbs/bootstrap/dist/css/bootstrap.css'
+            'bundles/event/css/event.css'
+            'bundles/event/css/events.css'
+            'bundles/event/css/main.css'
+            filter='cssrewrite'
+            filter='?uglifycss'
+            output='css/built/layout.css'
+        %}
+            <link rel="stylesheet" href="{{ asset_url }}"/>
         {% endstylesheets %}
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
@@ -36,7 +38,15 @@
 
 {% block body %}{% endblock %}
 {% block javascripts %}
-    <script src="//code.jquery.com/jquery-1.12.4.min.js"></script>
+    {# <script src="//code.jquery.com/jquery-1.12.4.min.js"></script> #}
+    {% javascripts
+        '%kernel.root_dir%/../vendor/components/jquery/jquery.js'
+        '%kernel.root_dir%/../vendor/twbs/bootstrap/dist/js/bootstrap.js'
+        filter='?uglifyjs'
+        output='js/built/app.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 {% endblock %}
 </body>
 </html>

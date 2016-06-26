@@ -21,6 +21,7 @@ class EventController extends Controller
 
     /**
      * Lists all Event entities.
+     *
      * @Route("/", name="event")
      * @Template()
      */
@@ -39,6 +40,7 @@ class EventController extends Controller
 
     /**
      * Rendering partials
+     *
      * @param null $max
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -47,6 +49,8 @@ class EventController extends Controller
         //$em = $this->getDoctrine()->getManager();
         //$events = $em->getRepository('EventBundle:Event')->getUpcomingEvents($max);
         $events = $this->getEventRepository()->getUpcomingEvents($max);
+        // var_dump($events);
+        // die();
 
         return $this->render('EventBundle:Event:_upcomingEvents.html.twig', array(
             'events' => $events,

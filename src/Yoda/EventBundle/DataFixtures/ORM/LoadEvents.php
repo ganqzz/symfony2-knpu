@@ -17,14 +17,14 @@ class LoadEvents implements FixtureInterface, OrderedFixtureInterface
         $event1 = new Event();
         $event1->setName('Darth\'s Birthday Party!');
         $event1->setLocation('Deathstar');
-        $event1->setTime(new \DateTime('tomorrow noon'));
+        $event1->setTime(new \DateTime('next month'));
         $event1->setDetails('Ha! Darth HATES surprises!!!');
         $manager->persist($event1);
 
         $event2 = new Event();
         $event2->setName('Rebellion Fundraiser Bake Sale!');
         $event2->setLocation('Endor');
-        $event2->setTime(new \DateTime('Thursday noon'));
+        $event2->setTime(new \DateTime('next year'));
         $event2->setDetails('Ewok pies! Support the rebellion!');
         $manager->persist($event2);
 

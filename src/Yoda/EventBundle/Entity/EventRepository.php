@@ -38,7 +38,7 @@ class EventRepository extends EntityRepository
     {
         return $this->createQueryBuilder('e')
             ->andWhere('e.updatedAt > :since')
-            ->setParameter('since', new \DateTime('24 hours ago'))
+            ->setParameter('since', new \DateTime('1 week ago'))
             ->getQuery()
             ->execute();
     }
